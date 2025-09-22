@@ -1,0 +1,22 @@
+{
+  "Products": [
+    {
+      "id": "1",
+      "name": "Monitor de 24 pulgadas",
+      "pvp": 80.51,
+      "description": "Monitor led"
+    },
+    {
+      "id": "2",
+      "name": "Monitor de 24 pulgadas",
+      "pvp": 80.51,
+      "description": "Monitor led"
+    },
+    {
+      "id": "3",
+      "name": "Monitor de 24 pulgadas",
+      "pvp": 80.51,
+      "description": "Monitor led"
+    }
+  ]
+}
