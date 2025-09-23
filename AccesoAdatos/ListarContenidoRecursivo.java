@@ -13,10 +13,18 @@ public class ListarContenidoRecursivo {
         listarContenidoRecursivo(new File(rutaCarpeta),0);
     }
 
+// Al tener recursividad podemos añadir una variable nueva que se llame nivel la cual va a controlar las tabulaciones 
+
+/*
+*para las tabulaciones hacemos un for que me diga cuantas tabulaciones necesito sabiendo el nivel , 
+*/
+
     public static void listarContenidoRecursivo(File carpeta , int nivel) {
         for(int i = 0 ; i<nivel;i++){
             System.out.print(" ");
         }
+
+// Busqueda de ascii simbolo de un archivo
         if (carpeta.isDirectory()) {
             System.out.println("🗀: " + carpeta.getName());
 
