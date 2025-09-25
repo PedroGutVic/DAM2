@@ -19,6 +19,10 @@ public class Persona {
         this.genero = genero;
     }
 
+    public Persona() {
+        
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -76,7 +80,13 @@ public class Persona {
             "@[A-Za-z0-9-]"+
             "+.[a-zA-Z]{2,}$");
 
+    
+            private final Pattern PATRON_TELEFONO= Pattern.compile(
+                "^[+]?[0-9]{5,12}$"
+            );
+
     public static void main(String[] args) {
 
     }
+    
 }
