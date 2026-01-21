@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .importante {
+            color: red;
+        }
+
+        .fondo {
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- DOM: Document Object Model -->
+    <!--El DOM (Document Object Model) representa la estructura de la página
+        como un árbol de nodos. JavaScript puede usar el DOM para leer y
+        modificar contenido, atributos y estilos de los elementos en tiempo real.
+        Los comentarios siguientes explican brevemente las partes importantes
+        de este ejemplo.-->
+    
+    <div id="datos"></div>
+    <p class="importante">IMPORTANTE</p>
+    <p class="no-importante">No importante</p>
+
+
+    <script>
+
+    // Usamos setTimeout para ejecutar la manipulación del DOM después de 3s
+    // para que el usuario vea cómo se actualiza la página "en tiempo real".
+    setTimeout(() => {
+        // Obtener el elemento con id "datos" y añadir contenido HTML
+        const datos = document.getElementById("datos");
+        // innerHTML inserta contenido HTML; cuidado con HTML no confiable (XSS)
+        datos.innerHTML = "<p>Hola Mundo</p>";
+
+        // Seleccionar elementos por clase. getElementsByClassName devuelve
+        // una colección dinámica (HTMLCollection) de nodos.
+        const importante = document.getElementsByClassName("importante");
+        // Recorrer la colección y actualizar el texto de cada elemento
+        for (const p of importante) {
+            // textContent actualiza solo texto (sin interpretar HTML)
+            p.textContent = "Muy importante";
+        }
+
+        // Seleccionar todos los párrafos por etiqueta
+        const pas = document.getElementsByTagName("p");
+        // Añadir la clase 'fondo' a cada párrafo para aplicar estilo
+        for (const p of pas) {
+            p.classList.add("fondo");
+        }
+
+        // Ejemplo de uso de querySelector / querySelectorAll:
+        // - querySelector(selector) devuelve el primer elemento que
+        //   coincida con el selector CSS.
+        // - querySelectorAll(selector) devuelve una NodeList estática con
+        //   todos los elementos que coincidan.
+        // Aquí seleccionamos todos los elementos con la clase 'no-importante'
+        // y cambiamos su contenido como ejemplo.
+        const noImportantes = document.querySelectorAll('.no-importante');
+        for (const el of noImportantes) {
+            el.textContent = 'Este párrafo NO es importante (modificado con querySelectorAll)';
+        }
+    }, 3000);
+
+    </script>
+    
+
+</body>
+</html>

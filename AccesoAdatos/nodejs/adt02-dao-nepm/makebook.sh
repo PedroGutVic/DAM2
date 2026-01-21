@@ -1,0 +1,1 @@
+pandoc docs/00-Portada.md Readme.md -o Libro.pdf --template docs/eisvogel --listings

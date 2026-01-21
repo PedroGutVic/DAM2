@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="activity"></div>
+    <script>
+    // Usamos fetch para obtener una actividad de la API boredapi.com
+    fetch("https://bored-api.appbrewery.com/random")
+    .then ((Response)=>response.json)
+    .then((data)=>{console.log(data)});
+    for (const product  of products){
+        const p = document.createElement('p');
+        p.textContent = product.name
+    }
+    </script>
+</body>
+</html>

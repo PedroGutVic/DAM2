@@ -1,0 +1,89 @@
+@startuml
+
+class Usuario {
+    - username : String
+    - passwordHash : String
+    - email : String
+    - telefono : String
+    - nombre : String
+    - apellidos : String
+    - rol : Rol
+}
+
+enum Rol {
+    CLIENTE
+    OPERARIO
+    ADMIN
+}
+
+class Direccion {
+    - id : int
+    - tipoVia : String
+    - nombreVia : String
+    - numero : String
+    - portal : String
+    - puerta : String
+    - codigoPostal : String
+    - poblacion : String
+    - municipio : String
+    - provincia : String
+    - pais : String
+    - telefono : String
+    - porDefecto : Boolean
+}
+
+Usuario "1" -- "0..*" Direccion : tiene >
+
+class Producto {
+    - id : int
+    - nombre : String
+    - descripcion : String
+    - numero : String
+    - precio : float
+}
+
+class Pedido {
+    - numeroPedido : int
+    - fechaRecepcion : Date
+    - estado : EstadoPedido
+}
+
+enum EstadoPedido {
+    RECIBIDO
+    EN_PREPARACION
+    ENVIADO
+}
+
+Pedido "1" -- "1" Direccion : direccion_envio >
+Usuario "1" -- "0..*" Pedido : realiza >
+
+class LineaPedido {
+    - cantidad : int
+    - precioUnitario : float
+    - numeroPedido : int
+    - idProducto : int
+}
+
+Pedido "1" -- "1..*" LineaPedido : contiene >
+LineaPedido "1..*" -- "1" Producto : producto >
+
+class Carro {
+    - id : int
+}
+
+class LineaCarro {
+    - cantidad : int
+    - idCarro : int
+    - idProducto : int
+}
+
+Usuario "1" -- "1" Carro : tiene >
+Carro "1" -- "0..*" LineaCarro : contiene >
+LineaCarro "1..*" -- "1" Producto : producto ><
+
+class GestionOperarios {
+}
+
+Usuario "1" -- "0..1" GestionOperarios : gestiona >
+
+@enduml

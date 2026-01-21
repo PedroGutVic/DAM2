@@ -1,0 +1,23 @@
+{
+  "name": "javascript",
+  "version": "0.0.1",
+  "description": "Proyecto de prueba para usar npm",
+  "scripts": {
+  "start": "parcel index.html",
+  "build": "parcel build index.html"
+  },
+  "keywords": [
+    "Prueba",
+    "con",
+    "npm",
+    "package"
+  ],
+  "author": "Pedro Gutiérrez Vico",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.0"
+  }
+}

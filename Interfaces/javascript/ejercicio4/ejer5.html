@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<body>
+    <p id="pregunta"></p>
+    <input type="number" id="respuesta">
+    <button onclick="comprobar()">Comprobar</button>
+    <p id="resultado"></p>
+
+    <script>
+    let num1 = Math.floor(Math.random() * 10);
+    let num2 = Math.floor(Math.random() * 10);
+    let operador = Math.random() > 0.5 ? '+' : '-';
+    let correcta = operador === '+' ? num1 + num2 : num1 - num2;
+
+    document.getElementById("pregunta").textContent = `¿Cuánto es ${num1} ${operador} ${num2}?`;
+
+    function comprobar() {
+        let resp = parseInt(document.getElementById("respuesta").value);
+        document.getElementById("resultado").textContent = 
+        resp === correcta ? "✅ ¡Correcto!" : "❌ Incorrecto";
+    }
+    </script>
+</body>
+</html>

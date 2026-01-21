@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<body>
+  <form onsubmit="return validarFormulario()">
+    Nombre: <input type="text" id="nombre"><br>
+    Edad: <input type="number" id="edad"><br>
+    Email: <input type="email" id="email"><br>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <p id="mensaje"></p>
+
+  <script>
+    function validarFormulario() {
+      const nombre = document.getElementById("nombre").value.trim();
+      const edad = parseInt(document.getElementById("edad").value);
+      const email = document.getElementById("email").value;
+      const mensaje = document.getElementById("mensaje");
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (nombre.length < 3) {
+        mensaje.textContent = "El nombre debe tener más de 3 caracteres.";
+        return false;
+      }
+      if (isNaN(edad) || edad < 0 || edad > 120) {
+        mensaje.textContent = "La edad debe estar entre 0 y 120.";
+        return false;
+      }
+      if (!emailRegex.test(email)) {
+        mensaje.textContent = "El email no es válido.";
+        return false;
+      }
+      mensaje.textContent = "Formulario válido ✅";
+      return false;
+    }
+  </script>
+</body>
+</html>

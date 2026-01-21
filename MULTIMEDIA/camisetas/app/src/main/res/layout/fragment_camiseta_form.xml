@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:padding="16dp"
+    tools:context=".ui.CamisetaFormFragment">
+
+    <TextView
+        android:id="@+id/tvFormTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Añadir/Editar Camiseta"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Nombre de la Camiseta"
+        android:inputType="text"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFormTitle" />
+
+    <EditText
+        android:id="@+id/etPrecio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Precio"
+        android:inputType="numberDecimal"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNombre" />
+
+    <EditText
+        android:id="@+id/etImagenUrl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="ID de Imagen (ej: R.drawable.image_name)"
+        android:inputType="number"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etPrecio" />
+
+    <Button
+        android:id="@+id/btnSaveCamiseta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etImagenUrl" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

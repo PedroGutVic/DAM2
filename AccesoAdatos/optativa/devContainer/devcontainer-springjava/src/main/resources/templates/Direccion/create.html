@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head th:replace="~{fragmentos/general.html :: headfiles}">
+</head>
+
+<body>
+    <div>
+
+        <nav th:replace="~{fragmentos/general.html :: navegacion}"></nav>
+        <div class="container">
+
+            <h4 th:switch="${accion}">
+                <span th:case="añadir">Añadir una dirección</span>
+                <span th:case="editar">Editando la dirección</span>
+                <span th:case="borrar">Borrando la dirección</span>
+            </h4>
+
+            <form class="row" method="post" th:object="${direccion}"
+                th:action="${accion == 'borrar'} ? @{/admin/usuario/{idUsuario}/direccion/del/{idDireccion}(idUsuario=${usuario.id},idDireccion=${direccion.id})} : ${accion == 'añadir'} ? @{/admin/usuario/{idUsuario}/direccion/add(idUsuario=${usuario.id})} : @{/admin/usuario/{idUsuario}/direccion/edit/{idDireccion}(idUsuario=${usuario.id},idDireccion=${direccion.id})}">
+
+                <div class="mb-3">
+                    <label class="form-label" for="tipoVia">Tipo de vía</label>
+                    <input type="text" th:if="${accion}!='borrar'" name="tipoVia" class="form-control" th:field="*{tipoVia}" />
+                    <input th:unless="${accion}!='borrar'" name="tipoVia" th:field="*{tipoVia}" class="form-control" disabled />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="nombreVia">Nombre de la vía</label>
+                    <input type="text" th:if="${accion}!='borrar'" name="nombreVia" th:field="*{nombreVia}" class="form-control" />
+                    <input th:unless="${accion}!='borrar'" name="nombreVia" th:field="*{nombreVia}" class="form-control" disabled />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="numero">Número</label>
+                    <input type="number" th:if="${accion}!='borrar'" name="numero" th:field="*{numero}" class="form-control" />
+                    <input th:unless="${accion}!='borrar'" name="numero" th:field="*{numero}" class="form-control" disabled />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="codPos">Código Postal</label>
+                    <select th:if="${accion}!='borrar'" th:field="*{codPos.cp}" class="form-select">
+                        <option th:each="cp: ${listaCodPos}" th:value="${cp.cp}" th:text="${cp.cp + ' - ' + cp.municipio}"></option>
+                    </select>
+                    <input th:unless="${accion}!='borrar'" name="codpos" th:value="${direccion.codPos.cp}" class="form-control" disabled />
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-success">Enviar!</button>
+                    <button type="reset" class="btn btn-danger">Cancelar</button>
+                </div>
+            </form>
+
+        </div>
+        <footer th:replace="~{fragmentos/general.html :: footer}"></footer>
+    </div>
+</body>
+
+</html>

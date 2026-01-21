@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/prueba1">
+
+    <fragment
+        android:id="@+id/prueba1"
+        android:name="com.pedrogv.desde0.prueba1"
+        android:label="fragment_prueba1"
+        tools:layout="@layout/fragment_prueba1" />
+    <fragment
+        android:id="@+id/prueba2"
+        android:name="com.pedrogv.desde0.prueba2"
+        android:label="fragment_prueba2"
+        tools:layout="@layout/fragment_prueba2" />
+    <fragment
+        android:id="@+id/prueba3"
+        android:name="com.pedrogv.desde0.prueba3"
+        android:label="fragment_prueba3"
+        tools:layout="@layout/fragment_prueba3" />
+</navigation>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<body>
+    <select id="numero" onchange="mostrarTabla()">
+        <option value="">Elige un número</option>
+        ${Array.from({length:10},(_,i)=>`<option>${i+1}</option>`).join("")}
+    </select>
+
+    <div id="tabla"></div>
+
+    <script>
+        function mostrarTabla() {
+            const n = parseInt(document.getElementById("numero").value);
+            const tabla = document.getElementById("tabla");
+            if (!n) return tabla.innerHTML = "";
+
+            let html = `<h3>Tabla del ${n}</h3>`;
+            for (let i = 1; i <= 10; i++) {
+                html += `${n} × ${i} = ${n * i}<br>`;
+            }
+            tabla.innerHTML = html;
+        }
+    </script>
+</body>
+
+</html>

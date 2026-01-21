@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:padding="16dp"
+    tools:context=".DiceActivity">
+
+    <TextView
+        android:id="@+id/txt_phone_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Teléfono SOS:"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/txt_phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="N/A"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/iv_change_phone"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_phone_label" />
+
+    <ImageView
+        android:id="@+id/iv_change_phone"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txt_phone_label"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_phone"
+        app:srcCompat="@drawable/sharp_add_call_24"
+        android:contentDescription="Cambiar teléfono" />
+
+    <Button
+        android:id="@+id/buttonLink"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="154dp"
+        android:layout_height="94dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="32dp"
+        android:text="🔗 LINK"
+        android:textSize="20sp"
+        app:layout_columnWeight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonCall"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="141dp"
+        android:layout_height="89dp"
+        android:layout_marginEnd="4dp"
+        android:text="✆ SOS"
+        android:textSize="20sp"
+        app:layout_columnWeight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.552" />
+
+    <Button
+        android:id="@+id/buttonTTS"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="142dp"
+        android:layout_height="92dp"
+        android:layout_marginBottom="44dp"
+        android:text="🗣️ CHISTES"
+        android:textSize="20sp"
+
+        app:layout_columnWeight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonMio"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="161dp"
+        android:layout_height="86dp"
+        android:text="📸 CÁMARA"
+        android:textSize="20sp"
+        app:layout_columnWeight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.563" />
+
+    <Button
+        android:id="@+id/buttonDice"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="144dp"
+        android:layout_height="88dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="156dp"
+        android:text="🎲 DADOS"
+        android:textSize="20sp"
+        app:layout_columnWeight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/buttonAlarm"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="151dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="8dp"
+        android:text="⏰ ALARMA"
+        android:textSize="20sp"
+        app:layout_columnWeight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.742" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

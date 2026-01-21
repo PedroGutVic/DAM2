@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ejercicio01">
+
+    <View
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:layout_gravity="top"
+        android:background="#FF0000">
+    </View>
+    <View
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:layout_gravity="top|center"
+        android:background="#0040FF">
+    </View>
+    <View
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:layout_gravity="top|end"
+        android:background="#BB00FF">
+    </View>
+    <View
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:layout_gravity="center|start"
+        android:background="#5EFF00">
+    </View>
+    <View
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:layout_gravity="center|center"
+        android:background="#FF4800">
+    </View>
+    <View
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:layout_gravity="center|end"
+        android:background="#00FFAE">
+    </View>
+    <View
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:layout_gravity="bottom|start"
+        android:background="#FF00E7">
+    </View>
+    <View
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:layout_gravity="bottom|center"
+        android:background="#FF008B">
+    </View>
+
+    <View
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:layout_gravity="bottom|end"
+        android:background="#A2E43D">
+    </View>
+
+</FrameLayout>

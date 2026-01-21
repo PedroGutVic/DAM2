@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión Tienda</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>PVP</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="products">
+            
+        </tbody>
+    </table>
+    <script>
+        const tbody = document.getElementById('products');
+
+        const renderProducts = (products) => {
+            let productsHtml = '';
+            for(const product of products) {
+                productsHtml += `
+                <tr>
+                    <td>${product.id}</td>
+                    <td>${product.name}</td>
+                    <td>${product.pvp}</td>
+                    <td>${product.description}</td>
+                    <td><button onclick="deleteProductAsync(${product.id})">Eliminar</button></td>
+                </tr>
+                `;
+            }
+            tbody.innerHTML = productsHtml;
+        }
+
+        const getProducts = () => {
+            fetch('http://localhost:3000/products')
+            .then((response)=>response.json())
+            .then(renderProducts)
+            .catch((error)=>{
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="4">No se han podido cargar los datos</td>
+                    </tr>`;
+            })
+        };
+
+        const deleteProductAsync = async (id) => {
+            const response = await fetch('http://localhost:3000/products/'+id, {
+                method: 'DELETE'
+            })
+            if (response.status === 200) {
+                renderProductsAsync()
+            }
+            
+        }
+        const getProductsAsync = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/products');
+                const products = await response.json();
+                console.log(products);
+                return products;
+            } catch(error) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="4">No se han podido cargar los datos</td>
+                    </tr>`;
+            }
+        };
+
+        const renderProductsAsync = async () => {
+            const products = await getProductsAsync();
+            renderProducts(products);
+        }
+        renderProductsAsync();  
+        
+    </script>
+</body>
+</html>

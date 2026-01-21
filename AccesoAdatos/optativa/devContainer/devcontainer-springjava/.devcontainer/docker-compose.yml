@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/java:21
+    container_name: spring-devcontainer
+    restart: "no"
+    volumes:
+      - ..:/workspace:cached
+      - maven-cache:/home/vscode/.m2
+    working_dir: /workspace
+    command: sleep infinity
+    env_file:
+      - ../.env
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.4 # Las 8.x.x son LTS en MySQL, las 9.x.x no
+    container_name: mysql-spring-devcontainer
+    restart: "no"
+    env_file:
+      - ../.env
+    ports:
+      - "33306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+  adminer:
+    image: adminer:latest
+    container_name: adminer-spring-devcontainer
+    restart: "no"
+    ports:
+      - "8181:8080"
+    depends_on:
+      - mysql
+      
+volumes:
+  mysql-data:
+  maven-cache:

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head th:replace="~{fragmentos/general.html :: headfiles}">
+    </head>
+
+<body>
+    <div>
+        <nav th:replace="~{fragmentos/general.html :: navegacion}"></nav>
+        <table class="table">
+            <thead>
+                <th>Nif</th>
+                <th>username</th>
+                <th>email</th>
+                <th>rol</th>
+                <th>telefono</th>
+                
+            </thead>
+            <tbody>
+                <tr th:each=" user: ${listaUsuarios}">
+                    <td th:text ="${user.nif}"></td>
+                    <td th:text="${user.username}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td th:text="${user.rol}"></td>
+                    <td th:text="${user.telefono}"></td>
+                    <td> <a class="btn btn-success" th:href="|/admin/usuario/edit/${user.id}|">Editar</a> </td>
+                    <td> <a class="btn btn-danger" th:href="|/admin/usuario/del/${user.id}|">Borrar</a></td>
+                    <td> <a class="btn btn-primary" th:href="|/admin/usuario/${user.id}/direccion|">Ver direcciones</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <footer th:replace="~{fragmentos/general.html :: footer}"></footer>
+    </div>
+</body>
+
+</html>

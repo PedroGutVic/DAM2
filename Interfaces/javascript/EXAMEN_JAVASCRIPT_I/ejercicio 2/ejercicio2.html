@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <label id="buscador"></label>
+        <input type="text" name="buscador">
+        <ul id="listaHeroes">
+
+        </ul>
+    </div>
+
+
+
+    <script>
+        
+        const heroes = [
+            { alias: "Capitán Obvio", poder: "Te dice lo que acabas de ver", nivelDestreza: 10, pideComida: true },
+            { alias: "La Mujer Invisible (si nadie mira)", poder: "Se hace invisible cuando está sola", nivelDestreza: 5, pideComida: false },
+            { alias: "El Hombre Microondas", poder: "Calienta la leche demasiado", nivelDestreza: 20, pideComida: true },
+            { alias: "Thor-pe", poder: "Se da con el martillo en el dedo", nivelDestreza: 1, pideComida: true }
+        ];
+        const heroesContratables = heroes.map(heroe => heroes);
+        añadirElemento();
+        function añadirElemento() {
+            var lista = document.getElementById('listaHeroes');
+            lista.innerHTML=`<li>${heroes.alias}</li>`
+        }
+
+        buscador = document.getElementById("buscador")
+        buscador.addEventListener("change", function () {
+            
+        });
+    </script>
+</body>
+
+</html>

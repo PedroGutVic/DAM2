@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/myactivity/src/main/main.iml" filepath="$PROJECT_DIR$/myactivity/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myactivity/src/main/java/main2.iml" filepath="$PROJECT_DIR$/myactivity/src/main/java/main2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/pryecto psp.iml" filepath="$PROJECT_DIR$/.idea/pryecto psp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myactivity/target/target.iml" filepath="$PROJECT_DIR$/myactivity/target/target.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myactivity/src/test/test.iml" filepath="$PROJECT_DIR$/myactivity/src/test/test.iml" />
+    </modules>
+  </component>
+</project>

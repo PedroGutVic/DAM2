@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<body>
+    <textarea id="texto" placeholder="Texto original"></textarea><br>
+    <input type="number" id="desplazamiento" placeholder="Desplazamiento"><br>
+    <button onclick="cifrar()">Cifrar</button>
+    <textarea id="resultado" readonly></textarea>
+
+    <script>
+        function cifrar() {
+            let texto = document.getElementById("texto").value.toLowerCase();
+            let desplazamiento = parseInt(document.getElementById("desplazamiento").value);
+            let resultado = "";
+
+            for (let letra of texto) {
+                if (letra >= "a" && letra <= "z") {
+                    let codigo = letra.charCodeAt(0) - 97;
+                    let nuevo = (codigo + desplazamiento) % 26;
+                    resultado += String.fromCharCode(nuevo + 97);
+                } else {
+                    resultado += letra;
+                }
+            }
+            document.getElementById("resultado").value = resultado;
+        }
+    </script>
+</body>
+
+</html>

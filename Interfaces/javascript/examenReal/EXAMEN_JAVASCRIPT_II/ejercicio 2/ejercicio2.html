@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - Galería de Zorros</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f2f5;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        /* Contenedor principal de la galería */
+        .galeria-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo de las imágenes pequeñas */
+        .foto-galeria {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: zoom-in;
+            transition: transform 0.2s;
+            border: 2px solid #ddd;
+        }
+
+        .foto-galeria:hover {
+            transform: scale(1.05);
+            border-color: #d32f2f;
+        }
+
+        /* Botones de navegación */
+        .btn-nav {
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-nav:hover {
+            background-color: #34495e;
+        }
+
+        .btn-nav:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        /* Diálogo Modal */
+        dialog {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            text-align: center;
+            background: white;
+        }
+
+        dialog::backdrop {
+            background-color: rgba(0, 0, 0, 0.8);
+            /* Fondo oscuro */
+        }
+
+        dialog img {
+            max-width: 80vw;
+            max-height: 70vh;
+            display: block;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            object-fit: contain;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        dialog button {
+            padding: 8px 16px;
+            background: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        dialog button:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Galería de imágenes</h1>
+
+    <div id="galeria-container">
+
+    </div>
+
+    <div id="Divdialog">
+
+    </div>
+
+    <script>
+
+        const dialogo = document.getElementById('miDialogo');
+        const galeria = document.getElementById('galeria-container')
+        let arrayUrl = [];
+        orden = 2;
+        for (i = 1; i < 21; i++) {
+
+            arrayUrl[i] = "zorro_" + i + ".jpg"
+        }
+
+        galeria.innerHTML = `<button onclick="atras()">Atras</button><img src="${arrayUrl[orden - 1]}"> <img src="${arrayUrl[orden]}"><button onclick="adelante()">Adelante</button>`
+
+
+        function atras() {
+            if (orden > 2) {
+                orden--
+                console.log(orden)
+                galeria.innerHTML = `<button onclick="atras()">Atras</button><img src="${arrayUrl[orden - 1]}"> <img src="${arrayUrl[orden]}"><button onclick="adelante()">Adelante</button>`
+
+            } else {
+                console.log(orden)
+            }
+
+        }
+        function AbrirDialogo(arrayUrl) {
+            const divDialog = document.getElementById("Divdialog");
+
+            Divdialog.innerHTML = `<dialog id="miDialogo"><img id="imgGrande" src="${arrayUrl}"><button onclick="CerrarDialogo()" id="btnCerrar">Cerrar</button></dialog>`
+            miDialogo.showModal();
+        }
+        function adelante() {
+            if (orden < 20) {
+                orden++
+                galeria.innerHTML = `<button onclick="atras()">Atras</button>
+                                        <button onclick="AbrirDialogo(${arrayUrl[orden - 1]})" id="btnAbrir">
+                                            <img src="${arrayUrl[orden - 1]}">
+                                        </button>
+                                        <button onclick="AbrirDialogo(${arrayUrl[orden]})">
+                                            <img src="${arrayUrl[orden]}">
+                                        </button>
+                                    <button onclick="adelante()">Adelante</button>`
+                console.log(orden)
+
+            } else {
+                console.log(orden)
+            }
+        }
+        // Estas funciones son nativas de la etiqueta dialog. Lo que hacen es mostrar y cerrar el modal.
+        //dialogo.showModal();
+        //dialogo.close();
+        function CerrarDialogo() {
+            dialogo.close();
+        }
+
+
+    </script>
+</body>
+
+</html>

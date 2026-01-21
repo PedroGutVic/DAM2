@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head th:replace="~{fragmentos/general.html :: headfiles}">
+</head>
+
+<body>
+    <div>
+
+        <nav th:replace="~{fragmentos/general.html :: navegacion}"></nav>
+        <div class="container">
+
+
+            <h4 th:switch="${accion}">
+                <span th:case="añadir">Añadir un Codigo Postal</span>
+                <span th:case="editar">Editando un Codigo Postal</span>
+                <span th:case="borrar">Borrando un Codigo Postal</span>
+            </h4>
+
+            <form class="row" method="post" th:object="${codpos}"
+                th:action="${accion == 'borrar'} ? @{/admin/codpos/del/{cp}(cp=${codpos.cp})} : ${accion == 'añadir'} ? @{/admin/codpos/add} : @{/admin/codpos/edit/{cp}(cp=${codpos.cp})}">
+
+                <div class="mb-3">
+                    <label class="form-label" for="cp">Código de Codigo Postal:</label>
+                    <input type="number" th:if="${accion}!='borrar'" name="cp" class="form-control"
+                        placeholder="ej: 23001" th:field="*{cp}" />
+                    <input th:unless="${accion}!='borrar'" name="cp" th:field="*{cp}" class="form-control"
+                        disabled />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="municipio">Nombre deL Municipio:</label>
+                    <input type="text" th:if="${accion}!='borrar'" name="municipio" th:field="*{municipio}"
+                        class="form-control" placeholder="ej: Jaén" />
+                    <input th:unless="${accion}!='borrar'" name="municipio" th:field="*{municipio}" class="form-control"
+                        disabled />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="comunidad">Provincia:</label>
+                    <select th:if="${accion}!='borrar'" th:field="*{provincia.codigo}" class="form-select">
+                        <option th:each="prov: ${listaProvincias}" th:value="${prov.codigo}" th:text="${prov.nombre}"></option>
+                    </select>
+                    <input th:unless="${accion}!='borrar'" name="provincia" th:value="${codpos.provincia.nombre}" class="form-control" disabled />
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-success">Enviar!</button>
+                    <button type="reset" class="btn btn-danger">Cancelar</button>
+                </div>
+            </form>
+
+        </div>
+        <footer th:replace="~{fragmentos/general.html :: footer}"></footer>
+    </div>
+</body>
+
+</html>

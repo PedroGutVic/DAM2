@@ -1,0 +1,53 @@
+{
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "Elden Ring",
+      "descripcion": "RPG de mundo abierto desarrollado por FromSoftware.",
+      "imagen": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Elden_Ring_Box_art.jpg/250px-Elden_Ring_Box_art.jpg",
+      "pvp": 59.99
+    },
+    {
+      "id": 2,
+      "nombre": "The Legend of Zelda: Tears of the Kingdom",
+      "descripcion": "Aventura y exploración en un extenso mundo abierto.",
+      "imagen": "https://upload.wikimedia.org/wikipedia/en/f/fb/The_Legend_of_Zelda_Tears_of_the_Kingdom_cover.jpg?20220920000406",
+      "pvp": 69.99
+    },
+    {
+      "id": 3,
+      "nombre": "Hogwarts Legacy",
+      "descripcion": "RPG ambientado en el universo de Harry Potter.",
+      "imagen": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/Hogwarts_legacyboxart.svg/250px-Hogwarts_legacyboxart.svg.png",
+      "pvp": 59.99
+    },
+    {
+      "id": 4,
+      "nombre": "Starfield",
+      "descripcion": "RPG espacial con exploración de galaxias.",
+      "imagen": "https://upload.wikimedia.org/wikipedia/en/6/6d/Bethesda_Starfield.jpg",
+      "pvp": 69.99
+    },
+    {
+      "id": 5,
+      "nombre": "Resident Evil 4 Remake",
+      "descripcion": "Survival horror con acción y exploración.",
+      "imagen": "https://upload.wikimedia.org/wikipedia/en/d/df/Resident_Evil_4_remake_cover_art.jpg",
+      "pvp": 59.99
+    }
+  ],
+  "carrito": [
+    {
+      "id": "e230",
+      "productoId": 1
+    },
+    {
+      "id": "b858",
+      "productoId": 2
+    },
+    {
+      "id": "8f8e",
+      "productoId": 4
+    }
+  ]
+}

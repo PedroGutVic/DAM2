@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head th:replace="~{fragmentos/general.html :: headfiles}">
+</head>
+
+<body>
+    <div>
+
+        <nav th:replace="~{fragmentos/general.html :: navegacion}"></nav>
+        <div class="container">
+
+
+            <h4 th:switch="${accion}">
+                <span th:case="añadir">Añadir un usuario</span>
+                <span th:case="editar">Editando un usuario</span>
+                <span th:case="borrar">Borrando un usuario</span>
+            </h4>
+
+            <form class="row" method="post" th:object="${usuario}"
+                th:action="${accion == 'borrar'} ? @{/admin/usuario/del/{id}(id=${usuario.id})} : ${accion == 'añadir'} ? @{/admin/usuario/add} : @{/admin/usuario/edit/{id}(id=${usuario.id})}">
+
+                <div class="mb-3">
+                    <label class="form-label" for="id">ID del usuario</label>
+                    <input type="number" th:if="${accion}!='borrar'" name="id" class="form-control" th:field="*{id}" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="username">Username:</label>
+                    <input type="text" th:if="${accion}!='borrar'" name="username" th:field="*{username}"
+                        class="form-control" />
+                    <input th:unless="${accion}!='borrar'" name="username" th:field="*{username}" class="form-control"
+                        disabled />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="email">Email</label>
+                    <input th:if="${accion}!='borrar'" name="email" th:field="*{email}" class="form-control"
+                        placeholder="ej: prueba@gmail.com" />
+                    <input th:unless="${accion}!='borrar'" name="email" th:field="*{email}" class="form-control"
+                        disabled />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="nif">NIF</label>
+                    <input th:if="${accion}!='borrar'" name="nif" th:field="*{nif}" class="form-control" />
+                    <input th:unless="${accion}!='borrar'" name="nif" th:field="*{nif}" class="form-control" disabled />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="telefono">Teléfono</label>
+                    <input th:if="${accion}!='borrar'" name="telefono" th:field="*{telefono}" class="form-control" />
+                    <input th:unless="${accion}!='borrar'" name="telefono" th:field="*{telefono}" class="form-control" disabled />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="rol">Rol</label>
+                    <select th:if="${accion}!='borrar'" th:field="*{rol}" class="form-select">
+                        <option th:each="r: ${roles}" th:value="${r}" th:text="${r}"></option>
+                    </select>
+                    <input th:unless="${accion}!='borrar'" name="rol" th:field="*{rol}" class="form-control" disabled />
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" th:if="${accion}!='borrar'" th:field="*{enabled}" class="form-check-input" />
+                    <label class="form-check-label">Activo</label>
+                    <input th:unless="${accion}!='borrar'" name="enabled" th:field="*{enabled}" class="form-control" disabled />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" th:if="${accion}!='borrar'" name="password" th:field="*{password}" class="form-control" />
+                    <input th:unless="${accion}!='borrar'" name="password" th:field="*{password}" class="form-control" disabled />
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-success">Enviar!</button>
+                    <button type="reset" class="btn btn-danger">Cancelar</button>
+                </div>
+            </form>
+
+        </div>
+        <footer th:replace="~{fragmentos/general.html :: footer}"></footer>
+    </div>
+</body>
+
+</html>

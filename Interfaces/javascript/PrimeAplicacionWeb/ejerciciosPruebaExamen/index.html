@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <div>
+            <h1>Ejercicio</h1>
+            <input type="number" id="Numeros">
+
+            <table border="border">
+                <tr>
+                    <td>
+                      <p id="n1"></p>  
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <p id="n2"></p>  
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <p id="n3"></p>  
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <p id="n4"></p>  
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <p id="n5"></p>  
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            multiplicacion(1)
+                const numero = document.getElementById('Numeros');
+                numero.addEventListener('change' , (e)=>{
+                    console.log(e.target.value)
+                    multiplicacion(e.target.value)
+                })
+                function multiplicacion(number){
+                    for(i=1;i<=5 ; i++){
+                        let idp="n"+i
+                        document.getElementById(idp).innerHTML=`${number}*${i}=${number*i}`
+                    }
+                    
+                }
+                
+                
+        </script> 
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<body>
+    <h3>Piedra, Papel o Tijera</h3>
+    <button onclick="jugar('piedra')">🪨 Piedra</button>
+    <button onclick="jugar('papel')">📄 Papel</button>
+    <button onclick="jugar('tijera')">✂️ Tijera</button>
+    <p id="resultado"></p>
+
+    <script>
+        let jugador = 0, maquina = 0;
+
+        function jugar(eleccion) {
+            const opciones = ["piedra", "papel", "tijera"];
+            const comp = opciones[Math.floor(Math.random() * 3)];
+            let mensaje = `Tú: ${eleccion} | Máquina: ${comp} → `;
+
+            if (eleccion === comp) mensaje += "Empate 😐";
+            else if (
+                (eleccion === "piedra" && comp === "tijera") ||
+                (eleccion === "papel" && comp === "piedra") ||
+                (eleccion === "tijera" && comp === "papel")
+            ) {
+                jugador++;
+                mensaje += "Ganaste esta ronda 😎";
+            } else {
+                maquina++;
+                mensaje += "Perdiste esta ronda 😢";
+            }
+
+            if (jugador === 2 || maquina === 2) {
+                mensaje += jugador === 2 ? "\n🏆 ¡Ganaste la partida!" : "\n💀 Perdiste la partida.";
+                jugador = maquina = 0;
+            }
+
+            document.getElementById("resultado").textContent = mensaje;
+        }
+    </script>
+</body>
+
+</html>

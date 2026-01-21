@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head th:replace="~{fragmentos/general.html :: headfiles}">
+</head>
+
+<body>
+    <div>
+        <nav th:replace="~{fragmentos/general.html :: navegacion}"></nav>
+
+        <div class="container">
+            <h3>Direcciones de <span th:text="${usuario.username}"></span></h3>
+            <a class="btn btn-primary mb-2" th:href="|/admin/usuario/${usuario.id}/direccion/add|">Añadir dirección</a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Código Postal</th>
+                        <th>Número</th>
+                        <th>Tipo vía</th>
+                        <th>Nombre vía</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="direccion: ${listaDirecciones}">
+                        <td th:text="${direccion.codPos.cp}"></td>
+                        <td th:text="${direccion.numero}"></td>
+                        <td th:text="${direccion.tipoVia}"></td>
+                        <td th:text="${direccion.nombreVia}"></td>
+                        <td><a class="btn btn-success" th:href="|/admin/usuario/${usuario.id}/direccion/edit/${direccion.id}|">Editar</a></td>
+                        <td><a class="btn btn-danger" th:href="|/admin/usuario/${usuario.id}/direccion/del/${direccion.id}|">Borrar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer th:replace="~{fragmentos/general.html :: footer}"></footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_pedro">
+
+    <!-- Fragmento HOME (Pedro) -->
+    <fragment
+        android:id="@+id/nav_pedro"
+        android:name="com.pedrogv.navfragments.FragmentPedro"
+        android:label="fragment_pedro"
+        tools:layout="@layout/fragment_pedro" />
+
+    <!-- Fragmento CRUD (Hospedaje) -->
+    <fragment
+        android:id="@+id/nav_hospedaje"
+        android:name="com.pedrogv.navfragments.FragmentHospedaje"
+        android:label="fragment_hospedaje"
+        tools:layout="@layout/fragment_hospedaje" />
+</navigation>

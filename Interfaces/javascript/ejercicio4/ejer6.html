@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<body>
+    <input type="number" id="longitud" placeholder="Longitud">
+    <button onclick="generar()">Generar</button>
+    <p id="password"></p>
+
+    <script>
+    function generar() {
+        const caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+        let longitud = document.getElementById("longitud").value;
+        let pass = "";
+        for (let i = 0; i < longitud; i++) {
+        pass += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+        }
+        document.getElementById("password").textContent = pass;
+    }
+    </script>
+</body>
+</html>

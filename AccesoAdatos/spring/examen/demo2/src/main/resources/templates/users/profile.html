@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head th:replace="~{fragmentos/general.html :: headfiles}">
+</head>
+
+<body>
+    <nav th:replace="~{fragmentos/general.html :: navegacion}"></nav>
+    <div class="container">
+        <h3>Mi perfil</h3>
+        <form method="post" th:object="${usuario}" th:action="@{/usuario/perfil}">
+            <div class="mb-3">
+                <label>Username</label>
+                <input class="form-control" th:field="*{username}" disabled />
+            </div>
+            <div class="mb-3">
+                <label>Email</label>
+                <input class="form-control" th:field="*{email}" />
+            </div>
+            <div class="mb-3">
+                <label>Teléfono</label>
+                <input class="form-control" th:field="*{telefono}" />
+            </div>
+            <div class="mb-3">
+                <label>NIF</label>
+                <input class="form-control" th:field="*{nif}" />
+            </div>
+            <div class="mb-3">
+                <label>Contraseña (dejar vacío para no cambiar)</label>
+                <input type="password" class="form-control" th:field="*{password}" />
+            </div>
+            <button class="btn btn-primary" type="submit">Guardar</button>
+        </form>
+
+        <hr />
+        <h4>Mis direcciones</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>CP</th>
+                    <th>Tipo</th>
+                    <th>Nombre vía</th>
+                    <th>Número</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="d:${listaDirecciones}">
+                    <td th:text="${d.codPos.cp}"></td>
+                    <td th:text="${d.tipoVia}"></td>
+                    <td th:text="${d.nombreVia}"></td>
+                    <td th:text="${d.numero}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h5>Añadir dirección</h5>
+        <form method="post" th:action="@{/usuario/perfil/addDireccion}" th:object="${direccion}">
+            <div class="mb-3">
+                <label>Tipo de vía</label>
+                <input class="form-control" th:field="*{tipoVia}" />
+            </div>
+            <div class="mb-3">
+                <label>Nombre vía</label>
+                <input class="form-control" th:field="*{nombreVia}" />
+            </div>
+            <div class="mb-3">
+                <label>Número</label>
+                <input type="number" class="form-control" th:field="*{numero}" />
+            </div>
+            <div class="mb-3">
+                <label>Código Postal</label>
+                <select class="form-select" th:field="*{codPos.cp}">
+                    <option th:each="cp: ${listaCodPos}" th:value="${cp.cp}" th:text="${cp.cp + ' - ' + cp.municipio}"></option>
+                </select>
+            </div>
+            <button class="btn btn-secondary" type="submit">Añadir dirección</button>
+        </form>
+
+    </div>
+    <footer th:replace="~{fragmentos/general.html :: footer}"></footer>
+</body>
+
+</html>

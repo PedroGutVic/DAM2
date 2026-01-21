@@ -1,0 +1,12 @@
+#textoStyle{
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+.image-container {
+text-align: center;
+margin: 20px;
+}
+.image-description {
+margin-top: 10px;
+}

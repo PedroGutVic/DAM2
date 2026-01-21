@@ -1,0 +1,71 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Rafa Motors"
+    },
+    {
+      "id": "2",
+      "name": "Antonio Crisis"
+    },
+    {
+      "id": "3",
+      "name": "Sergio La Marmota"
+    },
+    {
+      "id": "4",
+      "name": "Rubén GameDev"
+    },
+    {
+      "id": "5",
+      "name": "Beatriz Arbuniel"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "id_author": 1,
+      "text": "Vendo Seat Ibiza del 2005. 'Seminuevo'. Solo lo usaba una abuelita para ir al bingo. El ruido del motor es porque tiene carácter. Acepto aprobados de Acceso a Datos como parte de pago. 🚗💸",
+      "likes": 19
+    },
+    {
+      "id": "2",
+      "id_author": 2,
+      "text": "¡¡¡SOCORRO!!! Me ha salido un error en rojo en la consola y no sé si he roto el ordenador o Internet entero. ¿¿Alguien sabe qué significa 'SyntaxError'?? ¡¡ME VA A DAR ALGO!! 😱😱🚑",
+      "likes": 15
+    },
+    {
+      "id": "3",
+      "id_author": 3,
+      "text": "zzZzz... ¿Ya ha pasado el recreo?... zZz... Soñé que aprobaba SGE... zZz... No me despertéis a menos que haya comida. 😴🌭",
+      "likes": 42
+    },
+    {
+      "id": "4",
+      "id_author": 4,
+      "text": "Chavales, dejad de estudiar y probad mi nuevo juego. Es un simulador de hacer la dual en una cárnica. Si te atrapa el jefe final pierdes tu alma. Gráficos 8K. 🎮👾",
+      "likes": 28
+    },
+    {
+      "id": "5",
+      "id_author": 1,
+      "text": "Oye, ¿alguien quiere un Opel Corsa sin puertas? Es descapotable lateral. Ideal para el verano. Precio negociable (me vale un bocadillo de tortilla).",
+      "likes": 2
+    },
+    {
+      "id": "6",
+      "id_author": 5,
+      "text": "Mientras vosotros os dejáis el sueldo en agua mineral, yo aquí bebiendo agua fresquita y GRATIS del Nacimiento. Ventajas de ser de Arbuniel: agua pura para todos los vecinos by the face. 💧🏞️ #CalidadDeVida",
+      "likes": 20
+    },
+    {
+      "id": "7",
+      "id_author": 2,
+      "text": "¿¿Pero el examen entra TODO?? ¿Incluso lo que dio el día que falté porque me dolía una uña? ¡¡ESTOY HIPERVENTILANDO!! 🌬️💀",
+      "likes": 10
+    },
+    {
+      "id": "e2a5"
+    }
+  ]
+}
