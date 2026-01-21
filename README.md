@@ -61,7 +61,7 @@ Cada proyecto incluye instrucciones específicas en sus carpetas si es necesario
 
 ## Autor
 
-Estudiante de DAM - [Tu Nombre]
+Estudiante de DAM - Pedro Gutiérrez Vico
 
 ## Notas
 
